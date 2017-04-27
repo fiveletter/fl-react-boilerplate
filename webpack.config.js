@@ -1,12 +1,13 @@
 let webpack = require('webpack');
 let path = require('path');
 
-process.noDeprecation = true;
+process.noDeprecation = true; //< Supress webpack deprecation message
 
 module.exports = {
   entry: [
     'script-loader!jquery/dist/jquery.min.js',
-    'script-loader!foundation-sites/dist/foundation.min.js',
+    'tether',                                 //< required for boostrap v4.x.x
+    'bootstrap-loader',                       //< required to include bootstrap
     './app/app.jsx'
   ],
   externals: {
@@ -15,7 +16,24 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
-      'jQuery': 'jquery'
+      'jQuery': 'jquery',
+      /* BOOTSTRAP-LOADER MODULES
+      identifier:module pairs used for bootstrap/bootstrap-loader
+      */
+      "window.jQuery": "jquery",
+      Tether: "tether",
+      "window.Tether": "tether",
+      Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
+      Button: "exports-loader?Button!bootstrap/js/dist/button",
+      Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
+      Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+      Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+      Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
+      Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
+      Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
+      Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
+      Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
+      Util: "exports-loader?Util!bootstrap/js/dist/util",
     })
   ],
   output: {
@@ -48,9 +66,7 @@ module.exports = {
         test: /\.scss$/,
         loader: 'sass-loader',
         options: {
-          includePaths: [
-            path.resolve(__dirname, './node_modules/foundation-sites/scss')
-          ]
+          includePaths: []
         }
       }
     ]

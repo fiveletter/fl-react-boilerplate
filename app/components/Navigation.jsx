@@ -11,20 +11,21 @@ export class Navigation extends React.Component
   render () 
   {
     return (
-      <div className="top-bar">
-        <div className="top-bar-left">
-          <ul className="menu">
-            <li className="menu-text"><Link to='/'>Boilerplate</Link></li>
-            <li><Link to='/Hello'>Hello</Link></li>
-            <li><Link to='/about'>About</Link></li>
+      <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+        <span className="navbar-brand" href="#">
+          <Link className="nav-link" to='/'>Boilerplate</Link>
+        </span>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to='/Hello'>Hello</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to='/about'>About</Link>
+            </li>
           </ul>
         </div>
-        <div className="top-bar-right">
-          <ul className="menu">
-            <li className="menu-text">Vince Ly</li>
-          </ul>
-        </div>
-      </div>
+      </nav>
     )
   }
 }

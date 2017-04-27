@@ -14,7 +14,7 @@ app.use(function (req, res, next) {
     next();
   }
 })
-app.use(express.static('public')); ///< Lets you add functionality throughout app
+app.use(express.static('public'));
 
 app.listen(PORT, function () {
     console.log('Express server is up on port ' + PORT);
