@@ -1,5 +1,4 @@
 # **React Boilerplate**
------
 A very lightweight react boilerplate. This boilerplate is meant to be the bare minimum required to make a full fledge React web application. Add extra frills at your discretion. 
 
 #### Boilerplate Features:
