@@ -1,6 +1,7 @@
 let webpack = require('webpack');
 let path = require('path');
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.noDeprecation = true; //< Supress webpack deprecation message
 
 module.exports = {
@@ -34,6 +35,11 @@ module.exports = {
       Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
       Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
       Util: "exports-loader?Util!bootstrap/js/dist/util",
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
     })
   ],
   output: {
@@ -71,5 +77,5 @@ module.exports = {
       }
     ]
   },
-  devtool:'cheap-module-eval-source-map'
+  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
 }

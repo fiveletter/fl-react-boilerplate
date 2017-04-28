@@ -40,4 +40,4 @@ jspm_packages
 # Ignore webpack generated files
 babel_cache/
 dist/
-**/bundle.js
+public/bundle.js
