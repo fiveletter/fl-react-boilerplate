@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test karma start",
-    "prod": "webpack -p",
-    "build": "webpack",
-    "start": "npm run build && node server.js"
+    "build": "NODE_ENV=production webpack -p --config webpack.config.production.js",
+    "start": "webpack-dev-server"
   },
   "keywords": [
     "Vince",
@@ -51,6 +50,8 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
-    "mocha": "^3.3.0"
+    "mocha": "^3.3.0",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "webpack-dev-server": "^2.4.5"
   }
 }

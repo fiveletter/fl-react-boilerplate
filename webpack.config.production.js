@@ -6,9 +6,6 @@ process.noDeprecation = true; //< Supress webpack deprecation message
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
     'script-loader!jquery/dist/jquery.min.js',
     'tether',                                 //< required for boostrap v4.x.x
     'bootstrap-loader',                       //< required to include bootstrap
@@ -43,19 +40,11 @@ module.exports = {
       compressor: {
         warnings: false
       }
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    // enable HMR globally
-
-    new webpack.NamedModulesPlugin(),
-    // prints more readable module names in the browser console on HMR updates
-
-    new webpack.NoEmitOnErrorsPlugin(),
-    // do not emit compiled assets that include errors
+    })
   ],
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js',
+    path: __dirname,
+    filename: './public/bundle.js'
   },
   resolve: {
     modules: [
@@ -88,16 +77,5 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    host: 'localhost',
-    contentBase: path.resolve(__dirname, 'public'),
-    port: 3000,
-
-    historyApiFallback: true,
-    // respond to 404s with index.html
-
-    hot: true,
-    // enable HMR on the server
-  },
+  devtool: undefined
 }
