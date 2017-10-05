@@ -11,11 +11,13 @@ A very lightweight react boilerplate. This boilerplate is meant to be the bare m
 
 ## **Installation Instructions**
 1. Clone the project
-2. Run 
+2. Install NodeJS
+3. Install webpack globally
+4. Run 
     $ npm install
-3. Run webpack 
+5. Run webpack 
     $ webpack
-4. Run server.js
+6. Run server.js
     $ npm server.js
 
 ## **Sources**
