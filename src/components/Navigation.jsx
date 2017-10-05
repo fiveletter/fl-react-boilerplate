@@ -11,7 +11,7 @@ export class Navigation extends React.Component
   render () 
   {
     return (
-      <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+      <nav className="navbar navbar-expand-md navbar-light bg-faded">
         <span className="navbar-brand" href="#">
           <Link className="nav-link" to='/'>Boilerplate</Link>
         </span>
